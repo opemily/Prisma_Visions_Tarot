@@ -23,7 +23,7 @@ exports.getCards = function (req, res) {
 
 };
 
-exports.signUp = function (req, res) {
+exports.signup = function (req, res) {
   // Init Variables
     var firstName = req.body.name;
     var lastName = req.body.lastName;
@@ -82,7 +82,7 @@ exports.saveReading = function (req, res) {
 
 };
 
-exports.getUser = function (req, res) {
+exports.getUserReadings = function (req, res) {
   // Init Variables
     var user = req.session._id;
 

@@ -1,28 +1,22 @@
 'use strict';
 
-// 
-/*
-ToDo Routes:
+// Prisma Routes
+module.exports = function (app) {
 
-All Requests need to specify a content type of 'application/json'
-
-*/
-module.exports = function(app) {
-  
   var prismaController = require('../controllers/prisma.controller');
 
 
-  app.route('/').get(primsaController.getCards);
+    app.route('/').get(prismaController.getCards);
 
-  app.route('/signup').put(prismaController.signup);
+    app.route('/signup').put(prismaController.signup);
 
-  app.route('/login').post(prismaController.login);
+    app.route('/login').post(prismaController.login);
 
-  app.route('/logout').get(primsaController.logout);
+    app.route('/logout').get(prismaController.logout);
 
 
-  app.route('/:id/readings').get(todoController.getUserReadings);
+    app.route('/:id/readings').get(prismaController.getUserReadings);
 
-  app.route('/savereading').put(todoController.saveReading);
+    app.route('/savereading').put(prismaController.saveReading);
 
 };

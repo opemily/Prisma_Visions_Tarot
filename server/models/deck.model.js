@@ -1,14 +1,10 @@
 'use strict';
 
-/**
- * Module dependencies.
- */
-var mongoose = require('mongoose'), 
-  Schema = mongoose.Schema;
+// Module dependencies
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
 
-/**
- * User Schema
- */
+// Deck Schema
 var deckSchema = new Schema({
     name: String,
     cssClass: String,
