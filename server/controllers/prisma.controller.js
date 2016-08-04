@@ -2,12 +2,11 @@
 
 // Module dependencies //
 
-var bcrypt = require('bcrypt');
 var mongoose = require('mongoose');
 var Deck = mongoose.model('Deck');
 var Reading = mongoose.model('Reading');
 var User = mongoose.model('User');
-
+var bcrypt = require('bcrypt');
 
 
 exports.getCards = function (req, res) {
@@ -18,14 +17,14 @@ exports.getCards = function (req, res) {
 
     // Gets Cards from Database to Program
     Deck.find({}, function (err, cards) {
-        res.json({username: name, cards: cards});
+        res.json({cards});
     });
 
 };
 
 exports.signup = function (req, res) {
   // Init Variables
-    var firstName = req.body.name;
+    var firstName = req.body.firstName;
     var lastName = req.body.lastName;
     var email = req.body.email;
     var password = req.body.password;
@@ -33,12 +32,11 @@ exports.signup = function (req, res) {
 
     // User Signs Up
     if (password === passwordConfirmation) {
-        var encryptPassword = bcrypt.hashSync(req.body.password, 8);
+        var encryptPassword = bcrypt.hashSync(password, 8);
         var user = new User({firstName: firstName, lastName: lastName, email: email, password: encryptPassword});
         user.save();
     }
-
-    res.status(200).send({message: "OK"});
+    res.status(200).send({message: "User Signed Up"});
 };
 
 exports.login = function (req, res) {
@@ -51,11 +49,12 @@ exports.login = function (req, res) {
         var hash = user.password;
         bcrypt.compare(password, hash, function (err, result) {
             if (result) {
-                req.session.name = user.name;
+                req.session.firstName = user.firstName;
                 req.session._id = user._id.toString();
-                return res.status(200).send({message: "OK"});
+                res.json(req.session.firstName);
+                res.status(200).send({message: "User Logged In", firstName: req.session.firstName, id: req.session._id});
             } else {
-                return res.status(400).send({message: err});
+                res.status(400).send({message: err});
             }
         });
     });
@@ -64,6 +63,7 @@ exports.login = function (req, res) {
 exports.logout = function (req, res) {
   // Ends Session
   req.session.destroy();
+  res.status(200).send({message: "User Logged Out"});
 };
 
 exports.saveReading = function (req, res) {
@@ -79,7 +79,7 @@ exports.saveReading = function (req, res) {
     reading.save(function (err) {
         console.log(err);
     });
-
+    res.status(200).send({message: "Reading Saved"});
 };
 
 exports.getUserReadings = function (req, res) {

@@ -1,29 +1,12 @@
-'use strict';
+(function() {
+  'use strict';
 
-angular.module('sampleNode')
+  angular
+    .module('prismaApp')
+    .controller('MainController', function () {
+      var self = this;
 
-.controller('MainCtrl', function(MainControllerDataService) {
-  var self = this;
+      self.greeting = "Hello World";
+    });
 
-  function getAllTodos() {
-
-  }
-
-  self.addTodo = function(todo) {
-
-  };
-
-  self.editTodo = function(todo) {
-
-  };
-
-  self.updateTodo = function(todo) {
-
-  };
-
-  self.cancelUpdate = function() {
-
-  };
-
-  getAllTodos();
-});
+})();

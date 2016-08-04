@@ -9,8 +9,10 @@ var mongoose = require('mongoose'),
 var readingSchema = new Schema({
     user_id: {type: Schema.Types.ObjectId, ref: 'User'},
     question: String,
-    cards: Array,
-    rating: String
+    rating: Number,
+    cards: Array
+}, {
+    timestamps: true
 });
 
 mongoose.model('Reading', readingSchema);

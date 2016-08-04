@@ -8,15 +8,14 @@ module.exports = function (app) {
 
     app.route('/').get(prismaController.getCards);
 
-    app.route('/signup').put(prismaController.signup);
+    app.route('/signup').post(prismaController.signup);
 
     app.route('/login').post(prismaController.login);
 
     app.route('/logout').get(prismaController.logout);
 
+    app.route('/savereading').post(prismaController.saveReading);
 
-    app.route('/:id/readings').get(prismaController.getUserReadings);
-
-    app.route('/savereading').put(prismaController.saveReading);
+    app.route('/:user/readings').get(prismaController.getUserReadings);
 
 };
