@@ -1,8 +1,8 @@
-(function() {
+(function () {
   'use strict';
 
   angular
-    .module('prismaApp')
+    .module('prisma')
     .config(routerConfig);
 
   /** @ngInject */

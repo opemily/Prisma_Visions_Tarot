@@ -6,16 +6,16 @@ module.exports = function (app) {
   var prismaController = require('../controllers/prisma.controller');
 
 
-    app.route('/').get(prismaController.getCards);
+    app.route('/api/getcards').get(prismaController.getCards);
 
-    app.route('/signup').post(prismaController.signup);
+    app.route('/api/signup').post(prismaController.signup);
 
-    app.route('/login').post(prismaController.login);
+    app.route('/api/login').post(prismaController.login);
 
-    app.route('/logout').get(prismaController.logout);
+    app.route('/api/logout').get(prismaController.logout);
 
-    app.route('/savereading').post(prismaController.saveReading);
+    app.route('/api/savereading').post(prismaController.saveReading);
 
-    app.route('/:user/readings').get(prismaController.getUserReadings);
+    app.route('/api/:user/readings/').get(prismaController.getUserReadings);
 
 };

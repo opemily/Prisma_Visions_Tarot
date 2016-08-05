@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sampleNode')
+angular.module('prisma')
   .controller('NavbarCtrl', function ($scope) {
     $scope.date = new Date();
   });

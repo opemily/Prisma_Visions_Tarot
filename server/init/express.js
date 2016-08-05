@@ -17,8 +17,9 @@ module.exports = function (db) {
     require('../models/user.model');
 
     app.use(express.static('./dist'));
-    var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/prisma';
 
+    // Sessions
+    var mongoUrl = process.env.MONGOLAB_URI || 'mongodb://localhost:27017/prisma';
     app.use(session({
         secret: 'Hello World',
         store: new MongoStore({url: mongoUrl}),

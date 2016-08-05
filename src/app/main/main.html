@@ -1,3 +1,11 @@
 <div class="container">
-  <h1>{{ ctrl.greeting }}</h1>
+  <div class="question">
+    <p ng-show="ctrl.cardsShuffled" ng-bind="ctrl.question"></p>
+    <input type="text" placeholder="Ask your question to the cards..." ng-hide="ctrl.cardsShuffled" ng-model="ctrl.question">
+    <button ng-hide="ctrl.cardsShuffled" ng-click="ctrl.shuffleDeck()"> Shuffle the Deck</button>
+
+  <div class="spread">
+  </div>
+    
+  </div>
 </div>

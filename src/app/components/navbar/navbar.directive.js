@@ -2,11 +2,11 @@
   'use strict';
 
   angular
-    .module('template')
-    .directive('acmeNavbar', acmeNavbar);
+    .module('prisma')
+    .directive('prismaNavbar', prismaNavbar);
 
   /** @ngInject */
-  function acmeNavbar() {
+  function prismaNavbar() {
     var directive = {
       restrict: 'E',
       templateUrl: 'app/components/navbar/navbar.html',
@@ -19,14 +19,11 @@
     };
 
     return directive;
+  }
 
     /** @ngInject */
-    function NavbarController(moment) {
-      var vm = this;
-
-      // "vm.creationDate" is available by directive option "bindToController: true"
-      vm.relativeDate = moment(vm.creationDate).fromNow();
+    function NavbarController() {
     }
-  }
+  
 
 })();
