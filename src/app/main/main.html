@@ -1,11 +1,14 @@
 <div class="container">
+
   <div class="question">
     <p ng-show="ctrl.cardsShuffled" ng-bind="ctrl.question"></p>
+
     <input type="text" placeholder="Ask your question to the cards..." ng-hide="ctrl.cardsShuffled" ng-model="ctrl.question">
     <button ng-hide="ctrl.cardsShuffled" ng-click="ctrl.shuffleDeck()"> Shuffle the Deck</button>
+  </div> <!-- .question -->
 
-  <div class="spread">
-  </div>
-    
-  </div>
+  <div class="spread" ng-if="ctrl.cardsShuffled">
+    <prisma-card ng-repeat="card in ctrl.reading"></prisma-card>
+  </div> <!-- .spread -->
+
 </div>

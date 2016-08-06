@@ -14,6 +14,14 @@ Come inside the tent of the Omnipotent Emily and ask the cards your fortune with
 
 ## Credits
 
+### Templates & Code Used
+
+* Generator - [Generator Gulp Angular](https://github.com/Swiip/generator-gulp-angular)
+
+* Node Backend Template-  courtesy of George Dagher
+
+* [Fisher Yates Shuffle](http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array)
+
 ### Fonts 
 * Font: DS_Mysticora Version: 1.0 -  �copyright - September 2001 - Daniel Steven Smith 
 

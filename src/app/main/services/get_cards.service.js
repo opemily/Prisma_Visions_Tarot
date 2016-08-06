@@ -3,7 +3,7 @@
 
     angular
     .module('prisma')
-        .service('CardService', function ($resource) {
+        .service('GetCardsService', function ($resource) {
             var self = this;
             var tarotDeck = $resource('/api/getcards');
 

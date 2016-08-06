@@ -7,7 +7,7 @@ var mongoose = require('mongoose'),
 // Deck Schema
 var deckSchema = new Schema({
     name: String,
-    cssClass: String,
+    cssAttr: String,
     img: String,
     def: String
 });
