@@ -1,0 +1,14 @@
+  <div class="modal-header">
+  <button type="button" class="btn btn-xs btn-default" ng-click="inst.close()"> &times; </button>
+  </div> <!-- .modal-header -->
+
+ 
+  <div class="modal-body">
+    <div class="card" ng-class="inst.card.cssAttr"></div>
+    <h3 ng-bind="inst.card.name"></h3>
+    <p ng-bind="inst.card.def"></p>
+  </div> <!-- .modal-body -->
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" ng-click="inst.close()">Close</button>
+  </div> <!-- .modal-footer -->

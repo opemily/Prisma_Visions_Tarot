@@ -3,7 +3,7 @@
 
   angular
     .module('prisma')
-    .controller('MainController', function (GetCardsService) {
+    .controller('MainController', function (GetCardsService, $modal) {
         var self = this;
 
         GetCardsService.getCards().then(function onSuccess(response) {
@@ -35,6 +35,16 @@
             }
             return array;
         };
+      self.open = function (card) {
+        var modalInstance = $modal.open({
+                animation: false,
+                templateUrl: 'app/main/partials/prisma-modal.partial.html',
+                controller: 'prismaModalCtrl as inst',
+                resolve: {
+                  card: function () {return card;}
+                }
+        });
+      };
 
       self.shuffleDeck = function () {
         self.cardsShuffled = true;
@@ -44,7 +54,6 @@
         for (var i = 0; i < self.cardPosition.length; i++){
           self.reading.push(self.tarotDeck[i]);
         }
-        console.log(self.reading);
       }
     });
 
