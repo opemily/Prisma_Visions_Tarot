@@ -39,14 +39,6 @@
                 }
         });
       };
-
-      // self.prismaPopover = {
-      //   // content: CardPositions[self.index].meaning,
-      //   content: "Hello World",
-      //   templateUrl: 'app/main/partials/prisma-popover-meaning.partial.html',
-      //   // title: CardPositions[self.index].position
-      //   title: "Hello"
-      // };
       
       self.shuffleDeck = function () {
         self.cardsShuffled = true;
