@@ -1,6 +1,6 @@
 <div class="card" ng-click="ctrl.open(card)"><img src="/assets/imgs/cards/backCard.gif">
 
-<a href="" ng-bind="ctrl.cardPosition[$index].position" data-toggle="popover" data-trigger="focus" title="ctrl.cardPosition[$index].position" data-content="ctrl.cardPosition[$index].meaning"></a>
+<a href="" popover="{{ctrl.cardPosition[$index].meaning}}" popover-title="{{ctrl.cardPosition[$index].position}}" popover-trigger="mouseenter" Popover-animation="true" ng-bind="ctrl.cardPosition[$index].position" ></a>
 
 
 

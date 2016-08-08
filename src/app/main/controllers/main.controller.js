@@ -3,20 +3,14 @@
 
   angular
     .module('prisma')
-    .controller('MainController', function (GetCardsService, $modal) {
+    .controller('MainController', function (GetCardsService, CardPositions, $modal) {
         var self = this;
 
         GetCardsService.getCards().then(function onSuccess(response) {
           self.tarotDeck = response.cards;
         });
 
-        // Card Position -> Constant
-        self.cardPosition = [
-          {position: 'The Outcome', meaning: 'This card suggests a possible action that can be taken to remedy the issue.'},
-          {position: 'Past Influences', meaning: 'This card represents how past has influenced the subject of your query.'},
-          {position:'The Present', meaning: 'This card represents the subject you are seeking advice on.'},
-          {position: 'The Future', meaning: 'This card offers insight into the future.'},
-          {position: 'The Main Reason', meaning: 'This card relates to how the issue has come to pass.'}];
+        self.cardPosition = CardPositions;
 
         self.userRating = undefined;
 
@@ -46,6 +40,14 @@
         });
       };
 
+      // self.prismaPopover = {
+      //   // content: CardPositions[self.index].meaning,
+      //   content: "Hello World",
+      //   templateUrl: 'app/main/partials/prisma-popover-meaning.partial.html',
+      //   // title: CardPositions[self.index].position
+      //   title: "Hello"
+      // };
+      
       self.shuffleDeck = function () {
         self.cardsShuffled = true;
         self.reading = [];

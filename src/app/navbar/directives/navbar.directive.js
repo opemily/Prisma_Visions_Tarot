@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -9,7 +9,7 @@
     function prismaNavbar() {
         var directive = {
             restrict: 'E',
-            templateUrl: 'app/components/navbar/navbar.html',
+            templateUrl: 'app/navbar/partials/navbar.partial.html',
             scope: {
                 creationDate: '='
             },
