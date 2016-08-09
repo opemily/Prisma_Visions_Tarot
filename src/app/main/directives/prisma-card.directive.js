@@ -5,8 +5,9 @@
     .module('prisma')
     .directive('prismaCard', function() {
       return {
-        restrict: 'EA',
-        templateUrl: 'app/main/partials/prisma-card.partial.html'
+        restrict: 'E',
+        templateUrl: 'app/main/partials/prisma-card.partial.html',
+        scope: 'false'
       };
     })
 

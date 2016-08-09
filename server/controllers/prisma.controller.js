@@ -10,6 +10,7 @@ var bcrypt = require('bcrypt');
 
 
 exports.getCards = function (req, res) {
+
     // Gets Cards from Database to Program
     Deck.find({}, function (err, cards) {
         res.json({cards});
@@ -46,8 +47,7 @@ exports.login = function (req, res) {
             if (result) {
                 req.session.firstName = user.firstName;
                 req.session._id = user._id.toString();
-                res.json(req.session.firstName);
-                res.status(200).send({message: "User Logged In", firstName: req.session.firstName, id: req.session._id});
+                res.status(200).send({message: "User Signed Up", firstName: req.session.firstName, id:req.session._id});
             } else {
                 res.status(400).send({message: err});
             }
@@ -56,6 +56,7 @@ exports.login = function (req, res) {
 };
 
 exports.logout = function (req, res) {
+
   // Ends Session
   req.session.destroy(function (err) {
         if (err) {

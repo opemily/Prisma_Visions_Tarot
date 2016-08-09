@@ -3,27 +3,15 @@
 
   angular
     .module('prisma')
-    .directive('prismaNavbar', prismaNavbar);
-
-  /** @ngInject */
-    function prismaNavbar() {
-        var directive = {
+    .directive('prismaNavbar', function () {
+        return {
             restrict: 'E',
             templateUrl: 'app/navbar/partials/navbar.partial.html',
-            scope: {
-                creationDate: '='
-            },
-            controller: NavbarController,
-            controllerAs: 'vm',
+            controller: 'NavbarCtrl',
+            controllerAs: 'nav',
             bindToController: true
         };
-
-        return directive;
-    }
-
-    /** @ngInject */
-    function NavbarController() {
-    }
+    });
 
 
 })();

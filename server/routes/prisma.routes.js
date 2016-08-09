@@ -5,7 +5,6 @@ module.exports = function (app) {
 
   var prismaController = require('../controllers/prisma.controller');
 
-
     app.route('/api/getcards').get(prismaController.getCards);
 
     app.route('/api/signup').post(prismaController.signup);

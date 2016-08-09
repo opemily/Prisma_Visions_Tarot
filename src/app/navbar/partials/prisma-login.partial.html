@@ -1,0 +1,24 @@
+<div class="login">
+
+  <!-- <pre> {{ctrl.loginForm | json}} </pre> -->
+
+  <form name="nav.loginForm" novalidate ng-submit="nav.LogIn()">
+
+    <input type="email"
+         placeholder="Email"
+         ng-model="nav.email"
+         required><br>
+
+    <input type="password"
+         placeholder="Password"
+         ng-model="nav.password"
+         required><br>
+
+    <input type="submit"
+         ng-disabled="nav.loginForm.$invalid"
+         value="Login"
+         class="btn">
+  </form>
+
+  <a href=""><button class="btn">Sign Up</button></a>
+</div> <!-- .login -->

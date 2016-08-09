@@ -6,7 +6,7 @@
     .controller('MainController', function (GetCardsService, CardPositions, $modal) {
         var self = this;
 
-        GetCardsService.getCards().then(function onSuccess(response) {
+        GetCardsService.getCards().then(function (response) {
           self.tarotDeck = response.cards;
         });
 
@@ -39,7 +39,7 @@
                 }
         });
       };
-      
+
       self.shuffleDeck = function () {
         self.cardsShuffled = true;
         self.reading = [];
