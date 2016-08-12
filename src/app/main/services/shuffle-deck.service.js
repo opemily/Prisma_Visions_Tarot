@@ -1,31 +1,22 @@
+(function () {
+    'use strict';
 
-'use strict';
+    angular
+    .module('prisma')
+    .service('ShuffleDeckService', function (GetCardsService, FisherYatesShuffle) {
+        var self = this;
 
-angular
-.module('prisma')
-.service('ShuffleDeckService', function (GetCardsService, FisherYatesShuffle) {
-    var self = this;
-
-    var shuffleTheDeck = function () {
-                self.deckShuffled = true;
-                self.reading = [];
-
-                FisherYatesShuffle.shuffle(self.tarotDeck);
+        self.shuffleDeck = function() {
+                var reading = [];
+                GetCardsService.getCards().then(function (response) {
+                    var tarotDeck = response.cards;
+                    FisherYatesShuffle.shuffle(tarotDeck);
                     for (var i = 0; i < 5; i++) {
-                        self.reading.push(self.tarotDeck[i]);
+                        reading.push(tarotDeck[i]);
                     }
-
-                console.log(self.reading);
-               
+                });
+                return reading;
         };
 
-     
-    self.shuffleDeck = function () {
-            GetCardsService.getCards().then(function (response) {
-            self.tarotDeck = response.cards;
-            return shuffleTheDeck();  
-        });
-    };
-
-               
-});
+    });
+})();
