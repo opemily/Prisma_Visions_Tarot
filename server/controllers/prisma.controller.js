@@ -13,7 +13,7 @@ exports.getCards = function (req, res) {
 
     // Gets Cards from Database to Program
     Deck.find({}, function (err, cards) {
-        res.json({cards});
+        res.send({cards});
     });
 };
 
@@ -30,7 +30,9 @@ exports.signup = function (req, res) {
         var encryptPassword = bcrypt.hashSync(password, 8);
         var user = new User({firstName: firstName, lastName: lastName, email: email, password: encryptPassword});
         user.save(function () {
-            res.status(200).send({message: "User Signed Up"});
+            req.session.firstName = user.firstName;
+            req.session._id = user._id.toString();
+            res.status(200).send({message: "User Signed Up", firstName: req.session.firstName, id:req.session._id});
         });
     }
 };
@@ -47,7 +49,7 @@ exports.login = function (req, res) {
             if (result) {
                 req.session.firstName = user.firstName;
                 req.session._id = user._id.toString();
-                res.status(200).send({message: "User Signed Up", firstName: req.session.firstName, id:req.session._id});
+                res.status(200).send({firstName: req.session.firstName, id:req.session._id});
             } else {
                 res.status(400).send({message: err});
             }
@@ -95,7 +97,7 @@ exports.getUserReadings = function (req, res) {
         if (err) {
             res.status(400).send({message: err});
         } else {
-            res.json(result);
+            res.send(result);
         }
     });
 };
