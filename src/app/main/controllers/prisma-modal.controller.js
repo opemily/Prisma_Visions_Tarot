@@ -1,16 +1,16 @@
 (function () {
   'use strict';
 
-  angular
+    angular
     .module('prisma')
     .controller('prismaModalCtrl', function ($modalInstance, card) {
-      var self = this;
+        var self = this;
 
-      self.card = card;
+        self.card = card;
 
-      self.close = function () {
-          $modalInstance.close();
-      };
+        self.close = function () {
+            $modalInstance.close();
+        };
 
     });
 })();

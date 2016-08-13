@@ -1,9 +1,9 @@
 (function () {
     'use strict';
 
-      angular
-        .module('prisma')
-        .controller('MainController', function (CardPositions, ShuffleDeckService, OpenModalService) {
+    angular
+    .module('prisma')
+    .controller('MainController', function (CardPositions, ShuffleDeckService, OpenModalService) {
             var self = this;
 
             self.cardPosition = CardPositions;

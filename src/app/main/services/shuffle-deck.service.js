@@ -8,6 +8,7 @@
 
         self.shuffleDeck = function() {
                 var reading = [];
+                
                 GetCardsService.getCards().then(function (response) {
                     var tarotDeck = response.cards;
                     FisherYatesShuffle.shuffle(tarotDeck);
