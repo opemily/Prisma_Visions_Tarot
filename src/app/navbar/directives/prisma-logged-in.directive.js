@@ -3,10 +3,10 @@
 
   angular
     .module('prisma')
-    .directive('prismaLogin', function () {
+    .directive('prismaLoggedIn', function () {
       return {
         restrict: 'E',
-        templateUrl: 'app/navbar/partials/prisma-login.partial.html',
+        templateUrl: 'app/navbar/partials/prisma-logged-in.partial.html',
         scope: false
       };
 

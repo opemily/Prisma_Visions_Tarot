@@ -15,6 +15,7 @@
                         reading.push(tarotDeck[i]);
                     }
                 });
+
                 return reading;
         };
 

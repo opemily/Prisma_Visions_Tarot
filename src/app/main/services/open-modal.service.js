@@ -5,7 +5,7 @@
     .module('prisma')
     .service('OpenModalService', function ($modal) {
         var self = this;
-        
+
         self.open = function (card) {
             var modalInstance = $modal.open({
                     animation: false,
@@ -16,6 +16,6 @@
                     }
             });
         };
-    });
 
+    });
 })();

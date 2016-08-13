@@ -1,4 +1,3 @@
-
 (function () {
     'use strict';
 
@@ -13,12 +12,12 @@
 
             self.open = function (card) {
                 OpenModalService.open(card);
-            }
+            };
 
             self.shuffleDeck = function () {
                 self.cardsShuffled = true;
                 self.reading = ShuffleDeckService.shuffleDeck();
             };
-  
+
     });
 })();
