@@ -1,7 +1,7 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  angular
+    angular
     .module('prisma')
     .directive('prismaLoggedIn', function () {
         return {

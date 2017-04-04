@@ -1,12 +1,11 @@
 'use strict';
 
 // Module dependencies //
-
-var mongoose = require('mongoose');
-var Deck = mongoose.model('Deck');
-var Reading = mongoose.model('Reading');
-var User = mongoose.model('User');
-var bcrypt = require('bcrypt');
+var bcrypt      = require('bcrypt');
+var mongoose    = require('mongoose');
+var Deck        = mongoose.model('Deck');
+var Reading     = mongoose.model('Reading');
+var User        = mongoose.model('User');
 
 
 exports.getCards = function (req, res) {
@@ -32,8 +31,8 @@ exports.signup = function (req, res) {
         user.save(function () {
             req.session.firstName = user.firstName;
             req.session._id = user._id.toString();
-            res.status(200).send({message: "User Signed Up", firstName: req.session.firstName, id:req.session._id});
         });
+            res.status(200).send({message: "User Signed Up", firstName: req.session.firstName, id:req.session._id});
     }
 };
 
@@ -49,7 +48,7 @@ exports.login = function (req, res) {
             if (result) {
                 req.session.firstName = user.firstName;
                 req.session._id = user._id.toString();
-                res.status(200).send({firstName: req.session.firstName, id:req.session._id});
+                res.status(200).send(req.session);
             } else {
                 res.status(400).send({message: err});
             }

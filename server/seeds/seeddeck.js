@@ -89,9 +89,8 @@ var tarotCards = [
 ];
 
 tarotCards.forEach(function (card) {
-  var deck = new Deck(card);
-    deck.save(function (err, result) {
-        console.log(err, result);
-    });
-
+    var deck = new Deck(card);
+        deck.save(function (err, result) {
+            console.log(err, result);
+        });
 });
