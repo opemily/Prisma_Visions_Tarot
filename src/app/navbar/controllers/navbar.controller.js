@@ -3,57 +3,33 @@
 
     angular
     .module('prisma')
-    .controller('NavbarCtrl', function ($cookies, $log, LogInService, LogOutService) {
+    .controller('NavbarCtrl', function ($cookies, GetCookieService, $log, LogInService, LogOutService, RemoveCookieService, SetCookieService, $scope, User) {
         var self = this;
 
-        self.setCookie = function (name, id, options) {
-            $cookies.put('name', name, options);
-            $cookies.put('id', id, options);
-        };
-
-        self.getCookie = function () {
-             if ($cookies.get('name')) {
-                self.loggedIn = true;
-                self.name = $cookies.get('name');
-                self.id = $cookies.get('id');
-  
-            } else {
-                self.loggedIn = false;
-            }
-        }
-
-        self.removeCookie = function (){
-            if($cookies.get('name')) {
-                $cookies.remove('name');
-                $cookies.remove('id');
-                self.loggedIn = false; 
-            }
-        }
+        self.user = GetCookieService.getCookie();
 
         // Login -> Service
         self.logIn = function () {
             LogInService.login(self.email, self.password).then(function (response) {
-
-                self.name = response.firstName;
-                self.id = response._id;
-                self.setCookie(self.name, self.id, response.cookie);
-                self.loggedIn = true;
-            }, function(error){
+                self.user = SetCookieService.setCookie(response.firstName, response._id, response.cookie);
+            }, function (error){
                 $log.log(error);
             });
         };
-
 
         // Logout -> Service
         self.logOut = function () {
             LogOutService.logout().then(function () {
-                self.removeCookie();
+                self.user = RemoveCookieService.removeCookie();
             }, function(error){
                 $log.log(error);
             });
         };
 
-        self.getCookie();
+
+       $scope.$watch(function () { return self.user }, function(newVal, oldVal){
+                User = newVal;
+        }, true);
 
     });
 })();

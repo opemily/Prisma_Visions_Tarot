@@ -1,11 +1,17 @@
 <div class="container">
 
     <div class="question">
-        <p ng-show="ctrl.cardsShuffled" ng-bind="ctrl.question"></p>
+      <p ng-show="ctrl.cardsShuffled" ng-bind="ctrl.question"></p>
 
-        <input type="text" placeholder="Ask your question to the cards..." ng-hide="ctrl.cardsShuffled" ng-model="ctrl.question">
-        <button ng-hide="ctrl.cardsShuffled" ng-click="ctrl.shuffleDeck()"> Shuffle the Deck</button>
+      <div ng-show=""></div>
+        
+      </div>
 
+      <form name="questionForm" ng-hide="ctrl.cardsShuffled" ng-submit="ctrl.shuffleDeck()" >
+        <p ng-hide="questionForm.question.$pristine || questionForm.question.$dirty" ng-show="questionForm.question.$touched && questionForm.question.$error.required"> You must ask a question in order to get a reading!</p>
+        <input required name="question" ng-model="ctrl.question" placeholder="Ask your question to the cards..." type="text"/>
+        <input ng-disabled="questionForm.$invalid" type="submit" value="Shuffle the Deck"/>
+      </form>
     </div> <!-- .question -->
 
     <div class="spread" ng-if="ctrl.cardsShuffled">

@@ -5,7 +5,7 @@
             <span class="glyphicon glyphicon-home"></span> Gulp Angular
         </a>
         </div> <!-- .navbar-header -->
-        <prisma-login ng-if="!nav.loggedIn"></prisma-login>
-        <prisma-logged-in ng-if="nav.loggedIn"></prisma-logged-in>
+        <prisma-login ng-hide="nav.user"></prisma-login>
+        <prisma-logged-in ng-show="nav.user"></prisma-logged-in>
     </div>
 </nav>

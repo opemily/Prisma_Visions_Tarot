@@ -3,7 +3,7 @@
 
     angular
     .module('prisma')
-    .controller('MainController', function (CardPositions, ShuffleDeckService, OpenModalService) {
+    .controller('MainController', function (CardPositions, ShuffleDeckService, OpenModalService, User) {
             var self = this;
 
             self.cardPosition = CardPositions;
@@ -18,6 +18,8 @@
                 self.cardsShuffled = true;
                 self.reading = ShuffleDeckService.shuffleDeck();
             };
+
+            console.log(User);
 
     });
 })();
